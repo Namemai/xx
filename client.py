@@ -24,7 +24,7 @@ readerTemp = {}
 
 print("""
 
-\t\tTITANX BY PASUNX คนเดียว มีควยไรไหม
+\t\tTITANX BY MAI
 \t\t\tCOPYRIGHT(C) 2019
 
 """)
@@ -54,7 +54,7 @@ import sys
 
 from linepy import LINE, OEPoll
 
-helpMessage = """-------- ᴛɪᴛᴀɴ x --------
+helpMessage = """-------- X --------
 ᴋɪᴄᴋᴇʀ ᴀᴍᴏᴜɴᴛ: {kk}
 
 ꜱᴇʟꜰ ᴄᴏᴍᴍᴀɴᴅ:
@@ -64,25 +64,25 @@ helpMessage = """-------- ᴛɪᴛᴀɴ x --------
 - {s}ᴘʀᴇꜰɪx ᴛᴇxᴛ
 
 ᴋɪᴄᴋᴇʀ ᴄᴏᴍᴍᴀɴᴅ:
-- {k} ʜᴇʟᴘ (ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ)
-- {k} ᴘʀᴇꜰɪx ᴛᴇxᴛ
+- {k} คำสั่ง (ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ)
+- {k} rk
 - {k} ʟᴏɢ (ᴠɪᴇᴡ ʟᴏɢꜱ)
-- {k} ꜱᴘᴇᴇᴅ
-- {k} ʀᴇꜱᴘᴏɴꜱᴇ
-- {k} ꜱᴛᴀᴛᴜꜱ
-- {k} ᴊᴏɪɴ
-- {k} ʟᴇᴀᴠᴇ
-- {k} ᴋɪᴄᴋ @
-- {k} ʙᴀɴ @, ɴᴀᴍᴇ (ʙᴀɴ)
-- {k} ᴅᴇʟ @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
-- {k} ᴄʟᴇᴀʀ (ᴄʟᴇᴀʀ ʙᴀɴ)
-- {k} ʟɪꜱᴛ (ʙᴀɴ ʟɪꜱᴛ)
-- {k} ᴋɪʟʟ (ᴋɪᴄᴋ ʙᴀɴ)
-- {k} ᴘʀᴏᴛᴇᴄᴛ
+- {k} ꜱᴘ
+- {k} บอท
+- {k} เชค
+- {k} มา
+- {k} ออก
+- {k} เตะ @
+- {k} แบน @, ɴᴀᴍᴇ (ʙᴀɴ)
+- {k} ยกแบน @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
+- {k} ขาว (ᴄʟᴇᴀʀ ʙᴀɴ)
+- {k} ดำ (ʙᴀɴ ʟɪꜱᴛ)
+- {k} เตะดำ (ᴋɪᴄᴋ ʙᴀɴ)
+- {k} ป้องกัน
 - {k} ᴀᴅᴍɪɴ ᴀᴅᴅ @, ɴᴀᴍᴇ
 - {k} ᴀᴅᴍɪɴ ᴅᴇʟ @, ɴᴀᴍᴇ"""
 
-kickerHelpMessage = """-------- ᴛɪᴛᴀɴ x --------
+kickerHelpMessage = """-------- X --------
 - {k} ʀᴇꜱᴘᴏɴꜱᴇ
 - {k} ᴋɪᴄᴋ @
 - {k} ʙᴀɴ @, ɴᴀᴍᴇ (ʙᴀɴ)
@@ -814,7 +814,7 @@ def execute(op):
         if p is None: return
         if p.lower() != "": return
 
-        if kcmd[0] == "ghost" and isself:
+        if kcmd[0] == "ก็อต" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             if group.invitee == None: return
@@ -829,7 +829,7 @@ def execute(op):
             else:
                 client.sendMessage(to, toChar("ghost is already on"))
 
-        if kcmd[0] == "help" and allowed:
+        if kcmd[0] == "คำสั่ง" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             if group.id not in settings["admin"]:
@@ -879,7 +879,7 @@ def execute(op):
                 del settings["warmode"][group.id]
                 return random.choice(bOn).sendMessage(group.id, toChar("war mode disable"))
 
-        if kcmd[0] == "protect":
+        if kcmd[0] == "ป้องกัน":
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             if group.id not in settings["protect"]:
@@ -964,7 +964,7 @@ def execute(op):
                             message += f"\n- {member.displayName}"
                 return random.choice(bOn).sendMessage(to, message if len(message) != len(o) else toChar("no admin deleted."))
 
-        if kcmd[0] == "kill" and allowed:
+        if kcmd[0] == "เตะดำ" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -985,7 +985,7 @@ def execute(op):
                             kicked.append(mid)
                     except: continue
 
-        if kcmd[0] == "del" and allowed:
+        if kcmd[0] == "ยกแบน" and allowed:
             if len(kcmd) == 1: return
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
@@ -1006,7 +1006,7 @@ def execute(op):
             if message == "ᴅᴇʟ ᴜꜱᴇʀ(ꜱ):": return random.choice(bOn).sendMessage(to, toChar("no blacklist deleted."))
             random.choice(bOn).sendMessage(to, message)
 
-        if kcmd[0] == "ban" and allowed:
+        if kcmd[0] == "แบน" and allowed:
             if len(kcmd) == 1: return
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
@@ -1049,7 +1049,7 @@ def execute(op):
             logs = []
             random.choice(bOn).sendMessage(to, message if len(message) != len(old) else "ɴᴏ ʟᴏɢꜱ")
 
-        if kcmd[0] == "kick" and allowed:
+        if kcmd[0] == "เตะ" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1070,7 +1070,7 @@ def execute(op):
                     except:
                         continue
 
-        if kcmd[0] == "status" and isself:
+        if kcmd[0] == "เชค" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -1081,15 +1081,15 @@ def execute(op):
             for ki in bOn:
                 try:
                     ki.inviteIntoGroup(group.id, [ki.profile.mid])
-                    message = "ʀᴇᴀᴅʏ"
+                    message = "เตะได้..ค่ะเจ้านาย"
                     if ki.profile.mid in settings["status"]:
                         del settings["settings"][ki.profile.mid]
                 except:
-                    message = "ɴᴏᴛ ʀᴇᴀᴅʏ"
+                    message = "เตะไม่ได้..ค่ะเจ้านาย"
                     settings["status"][ki.profile.mid] = True
                 ki.sendMessage(group.id, message)
 
-        if kcmd[0] == "leave" and isself:
+        if kcmd[0] == "ออก" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1100,7 +1100,7 @@ def execute(op):
             for ki in inG:
                 ki.leaveGroup(group.id)
 
-        if kcmd[0] == "clear" and allowed:
+        if kcmd[0] == "ขาว" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -1123,7 +1123,7 @@ def execute(op):
                     dp += 1
             random.choice(bOn).sendMessage(to, toChar(f"clear {dp} blacklist user(s) on this group.") if dp != 0 else toChar(f"no blacklist user on this group."))
 
-        if kcmd[0] == "list" and allowed:
+        if kcmd[0] == "ดำ" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -1146,7 +1146,7 @@ def execute(op):
                         message += f"\n- {client.getContact(mid).displayName}"
             return random.choice(bOn).sendMessage(to, message if len(message) != len(old) else toChar("no blacklist on this group."))
 
-        if kcmd[0] == "response" and allowed:
+        if kcmd[0] == "บอท" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1160,7 +1160,7 @@ def execute(op):
                 if kicker[ki].profile.mid in bOn:
                     kicker[ki].sendMentionV2(to, "@!", [msg._from])
 
-        if kcmd[0] == "rank" and isself:
+        if kcmd[0] == "rk" and isself:
             igenet = 1000
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
@@ -1182,7 +1182,7 @@ def execute(op):
                 endTime = int((time.time() - startTime)*igenet)
                 ki.sendMessage(group.id, toChar("0/10 stars" if endTime not in list(powerLaist) and endTime < list(powerLaist)[0] else f'10/10 stars' if endTime < list(powerLaist)[0] and endTime not in list(powerLaist) else f"{powerLaist[int(str(endTime)[1]) if len(str(endTime)) >= 2 else endTime]}/10 stars"))
 
-        if kcmd[0] == "speed" and isself:
+        if kcmd[0] == "sp" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1198,7 +1198,7 @@ def execute(op):
                 endTime = time.time() - startTime
                 ki.sendMessage(to, toChar(f'{endTime} second | {int(endTime*1000)} MS'))
 
-        if kcmd[0] == "profile" and isself:
+        if kcmd[0] == "โปรฟาย" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1232,7 +1232,7 @@ def execute(op):
                         proobj.displayName = toChange
                         ki.updateProfile(proobj)
 
-        if kcmd[0] == "join" and isself:
+        if kcmd[0] == "มา" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
