@@ -32,7 +32,7 @@ class Config(object):
     APP_TYPE    = 'WIN10\t5.5.5'
     APP_VER     = '8.11.0'
     CARRIER     = '51089, 1-0'
-    SYSTEM_NAME = 'TITANX'
+    SYSTEM_NAME = 'by,mai'
     SYSTEM_VER  = '11.2.5'
     IP_ADDR     = '8.8.8.8'
     EMAIL_REGEX = re.compile(r"[^@]+@[^@]+\.[^@]+")
