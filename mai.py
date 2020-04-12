@@ -54,13 +54,13 @@ import sys
 
 from linepy import LINE, OEPoll
 
-helpMessage = """-------- X --------
+helpMessage = """------[คำสั่งแอดมิน]------
 ᴋɪᴄᴋᴇʀ ᴀᴍᴏᴜɴᴛ: {kk}
 
 ꜱᴇʟꜰ ᴄᴏᴍᴍᴀɴᴅ:
-- {s}ꜱᴛᴀᴛᴜꜱ
-- {s}ᴄᴏɴᴛᴀᴄᴛ @
-- {s}ᴍɪᴅ @
+- {s}เชค
+- {s}มี @
+- {s}มิด @
 - {s}ᴘʀᴇꜰɪx ᴛᴇxᴛ
 
 ᴋɪᴄᴋᴇʀ ᴄᴏᴍᴍᴀɴᴅ:
@@ -82,15 +82,15 @@ helpMessage = """-------- X --------
 - {k} ᴀᴅᴍɪɴ ᴀᴅᴅ @, ɴᴀᴍᴇ
 - {k} ᴀᴅᴍɪɴ ᴅᴇʟ @, ɴᴀᴍᴇ"""
 
-kickerHelpMessage = """-------- X --------
-- {k} ʀᴇꜱᴘᴏɴꜱᴇ
-- {k} ᴋɪᴄᴋ @
-- {k} ʙᴀɴ @, ɴᴀᴍᴇ (ʙᴀɴ)
-- {k} ᴅᴇʟ @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
-- {k} ᴄʟᴇᴀʀ (ᴄʟᴇᴀʀ ʙᴀɴ)
-- {k} ʟɪꜱᴛ (ʙᴀɴ ʟɪꜱᴛ)
-- {k} ᴋɪʟʟ (ᴋɪᴄᴋ ʙᴀɴ)
-- {k} ᴘʀᴏᴛᴇᴄᴛ"""
+kickerHelpMessage = """------[คำสั่งคิกเก้อ]------
+- {k} บอท
+- {k} เตะ @
+- {k} แบน @, ɴᴀᴍᴇ (ʙᴀɴ)
+- {k} ยกแบน @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
+- {k} ขาว (ᴄʟᴇᴀʀ ʙᴀɴ)
+- {k} ดำ (ʙᴀɴ ʟɪꜱᴛ)
+- {k} เตะดำ (ᴋɪᴄᴋ ʙᴀɴ)
+- {k} ป้องกัน"""
 
 logs = []
 
@@ -756,7 +756,7 @@ def execute(op):
                     mentionMembers(to, mids, "บัญชีที่อ่านข้อความ:\n")
                     del readerTemp[to]
                     
-                if cmd.lower() == "help":
+                if cmd.lower() == "คำสั่ง":
                     client.sendMessage(to, helpMessage.format(kk=str(KICKER), s=toChar(settings['prefix']['self']), k=toChar(settings['prefix']['kicker'])))
 
                 if cmd.lower() == "prefix":
@@ -785,7 +785,7 @@ def execute(op):
                         return
                     client.sendMessage(to, toChar("%s at line %d: %s" % (error_class, line_number, detail)))
 
-                if cmd.lower() == "contact" or cmd.lower() == "mid":
+                if cmd.lower() == "มี" or cmd.lower() == "mid":
                     def sendContactOrMid(to, mids, cmd):
                         for mid in mids:
                             if len(mid) == len(client.profile.mid):
@@ -801,7 +801,7 @@ def execute(op):
                     midslist = midslist + req
                     sendContactOrMid(to, midslist, cmd)
 
-                if cmd.lower() == "status" and req[0] == None:
+                if cmd.lower() == "เชค" and req[0] == None:
                     try:
                         client.inviteIntoGroup(to, [client.profile.mid])
                         message = "ɪɴᴠɪᴛᴇ & ᴋɪᴄᴋ: ʀᴇᴀᴅʏ"
