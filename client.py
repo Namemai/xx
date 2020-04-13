@@ -324,11 +324,13 @@ def execute(op):
                     for ki in bOn:
                         try:
                             if op.param2 not in kicked and ki.profile.mid not in settings["status"]:
+                                settings["banlist"][_mid] = True
                                 ki.kickoutFromGroup(group.id, [op.param2])
                                 kicked.append(op.param2)
                             for mid in banIg:
                                 try:
                                     if mid not in kicked and ki.profile.mid not in settings["status"]:
+                                        settings["banlist"][_mid] = True
                                         ki.kickoutFromGroup(group.id, [mid])
                                         kicked.append(mid)
                                 except Exception as e:
@@ -444,11 +446,13 @@ def execute(op):
                         for ki in bOn:
                             try:
                                 if op.param2 not in kicked and ki.profile.mid not in settings["status"]:
+                                    settings["banlist"][_mid] = True
                                     ki.kickoutFromGroup(group.id, [op.param2])
                                     kicked.append(op.param2)
                                 for mid in banIg:
                                     try:
                                         if mid not in kicked and ki.profile.mid not in settings["status"]:
+                                            settings["banlist"][_mid] = True
                                             ki.kickoutFromGroup(group.id, [mid])
                                             kicked.append(mid)
                                     except Exception as e:
@@ -507,6 +511,7 @@ def execute(op):
                                 try:
                                     for _mid in banIv:
                                         if _mid not in canceled and ki.profile.mid not in settings["status"]:
+                                            settings["banlist"][_mid] = True
                                             ki.cancelGroupInvitation(group.id, [_mid])
                                             canceled.append(_mid)
                                 except Exception as e:
