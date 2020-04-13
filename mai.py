@@ -750,7 +750,7 @@ def execute(op):
 
         if op.type == 25:
             if cmd is not None:
-                if cmd.lower() == "reader":
+                if cmd.lower() == "อ่าน":
                     if not to in readerTemp: return
                     mids = [mid for mid in readerTemp[to]]
                     mentionMembers(to, mids, "บัญชีที่อ่านข้อความ:\n")
@@ -785,7 +785,7 @@ def execute(op):
                         return
                     client.sendMessage(to, toChar("%s at line %d: %s" % (error_class, line_number, detail)))
 
-                if cmd.lower() == "มี" or cmd.lower() == "mid":
+                if cmd.lower() == "มิด" or cmd.lower() == "mid":
                     def sendContactOrMid(to, mids, cmd):
                         for mid in mids:
                             if len(mid) == len(client.profile.mid):
@@ -804,8 +804,8 @@ def execute(op):
                 if cmd.lower() == "เชค" and req[0] == None:
                     try:
                         client.inviteIntoGroup(to, [client.profile.mid])
-                        message = "ɪɴᴠɪᴛᴇ & ᴋɪᴄᴋ: ʀᴇᴀᴅʏ"
-                    except: message = "ɪɴᴠɪᴛᴇ & ᴋɪᴄᴋ: ɴᴏᴛ ʀᴇᴀᴅʏ"
+                        message = "เชิญ & เตะ: ON"
+                    except: message = "เชิญ & เตะ: OFF"
                     client.sendMessage(to, message)
             else:
                 if to in readerTemp:
@@ -859,7 +859,7 @@ def execute(op):
             message = f"ᴋɪᴄᴋᴇʀ ᴘʀᴇꜰɪx ɪꜱ ꜱᴇᴛ ᴛᴏ {toChar(settings['prefix']['kicker'])}"
             return random.choice(bOn).sendMessage(group.id, message)
 
-        if kcmd[0] == "war" and isself:
+        if kcmd[0] == "b" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -1081,11 +1081,11 @@ def execute(op):
             for ki in bOn:
                 try:
                     ki.inviteIntoGroup(group.id, [ki.profile.mid])
-                    message = "เตะได้..ค่ะเจ้านาย"
+                    message = "พร้อมเตะค่ะเจ้านาย.."
                     if ki.profile.mid in settings["status"]:
                         del settings["settings"][ki.profile.mid]
                 except:
-                    message = "เตะไม่ได้..ค่ะเจ้านาย"
+                    message = "ไม่พร้อมเตะค่ะเจ้านาย.."
                     settings["status"][ki.profile.mid] = True
                 ki.sendMessage(group.id, message)
 
