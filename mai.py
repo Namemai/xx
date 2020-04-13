@@ -59,7 +59,7 @@ helpMessage = """------[คำสั่งแอดมิน]------
 
 ꜱᴇʟꜰ ᴄᴏᴍᴍᴀɴᴅ:
 - {s}เชค
-- {s}มี @
+- {s}มี
 - {s}มิด @
 - {s}ᴘʀᴇꜰɪx ᴛᴇxᴛ
 
@@ -90,7 +90,7 @@ kickerHelpMessage = """------[คำสั่งคิกเก้อ]------
 - {k} ขาว (ᴄʟᴇᴀʀ ʙᴀɴ)
 - {k} ดำ (ʙᴀɴ ʟɪꜱᴛ)
 - {k} เตะดำ (ᴋɪᴄᴋ ʙᴀɴ)
-- {k} ป้องกัน"""
+- {k} ป้องกัน all/off"""
 
 logs = []
 
@@ -785,13 +785,13 @@ def execute(op):
                         return
                     client.sendMessage(to, toChar("%s at line %d: %s" % (error_class, line_number, detail)))
 
-                if cmd.lower() == "มิด" or cmd.lower() == "mid":
+                if cmd.lower() == "มี" or cmd.lower() == "มิด":
                     def sendContactOrMid(to, mids, cmd):
                         for mid in mids:
                             if len(mid) == len(client.profile.mid):
-                                if cmd == "contact":
+                                if cmd == "มี":
                                     client.sendContact(to, mid)
-                                if cmd == "mid":
+                                if cmd == "มิด":
                                     client.sendMessage(to, mid)
                     if req[0] == None:
                         return sendContactOrMid(to, [client.profile.mid], cmd)
@@ -1182,7 +1182,7 @@ def execute(op):
                 endTime = int((time.time() - startTime)*igenet)
                 ki.sendMessage(group.id, toChar("0/10 stars" if endTime not in list(powerLaist) and endTime < list(powerLaist)[0] else f'10/10 stars' if endTime < list(powerLaist)[0] and endTime not in list(powerLaist) else f"{powerLaist[int(str(endTime)[1]) if len(str(endTime)) >= 2 else endTime]}/10 stars"))
 
-        if kcmd[0] == "sp" and isself:
+        if kcmd[0] == "สปีด" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
