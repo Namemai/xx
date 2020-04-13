@@ -26,7 +26,7 @@ class Square(object):
         except:
             self.isSupportSquare = False
             pass
-            #self.log('Your LINE account is not support Square')
+            self.log('Your LINE account is not support Square')
 
     """Object"""
 
