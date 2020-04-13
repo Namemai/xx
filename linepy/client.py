@@ -50,9 +50,9 @@ class LINE(Auth, Models, Talk, Square, Call, Timeline, Liff):
 
     def register(self, seed=''):
         self.talk = Session(self.server.LINE_HOST_DOMAIN, self.server.Headers, self.server.LINE_API_QUERY_PATH_FIR).Talk()
-        res = requests.post('https://ga2s.line.naver.jp/plc/api/core/device/issueUdid', data=json.dumps(payload), #headers=header)
-        udidHash = res.json()['udidHash']
-        print(udidHash)
+        #res = requests.post('https://ga2s.line.naver.jp/plc/api/core/device/issueUdid', data=json.dumps(payload), #headers=header)
+        #udidHash = res.json()['udidHash']
+        #print(udidHash)
         udidHash = hashlib.md5( ('cool'+seed).encode() ).hexdigest()
         oldUdidHash = hashlib.md5( (udidHash).encode() ).hexdigest()
         return self.talk.registerDeviceWithoutPhoneNumber("JP", udidHash, self.deviceInfo())
@@ -76,6 +76,6 @@ class LINE(Auth, Models, Talk, Square, Call, Timeline, Liff):
         Liff.__init__(self)
         Models.__init__(self)
         Talk.__init__(self)
-        Square.__init__(self)
-        Call.__init__(self)
-        Timeline.__init__(self)
+        #Square.__init__(self)
+        #Call.__init__(self)
+        #Timeline.__init__(self)
