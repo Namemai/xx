@@ -6,16 +6,16 @@
 class EasyMessage:
 
     def __init__(self, client):
-        # require LINE Object
+        require LINE Object
         self.client = client
 
     def c(self, to, message=None): # create
-        # require group/room/chat ID
+        require group/room/chat ID
         self.msg = message if message is not None else ''
         self.to = to
 
     def a(self, text): # add
-        # require text
+        require text
         if self.msg == '':
             self.msg += f"{text}"
         else:
@@ -29,7 +29,7 @@ class EasyMessage:
         self.client.sendMessage(self.to, self.msg)
 
 if __name__ == '__main__':
-    # Simple
+    Simple
 
     class SimpleLINE():
         def sendMessage(self, to, message):
