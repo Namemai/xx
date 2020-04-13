@@ -4,8 +4,8 @@ import re
 
 class Config(object):
     SUBDOMAIN = "legy-jp"
-    #LINE_HOST_DOMAIN            = 'https://gd2x.line.naver.jp'
-    #LINE_HOST_DOMAIN            = 'https://legy-jp.line.naver.jp'
+    LINE_HOST_DOMAIN            = 'https://gd2x.line.naver.jp'
+    LINE_HOST_DOMAIN            = 'https://legy-jp.line.naver.jp'
     LINE_HOST_DOMAIN            = f'https://{SUBDOMAIN}.line.naver.jp'
     LINE_OBS_DOMAIN             = 'https://obs-sg.line-apps.com'
     LINE_TIMELINE_API           = f'https://{SUBDOMAIN}.line.naver.jp/mh/api'
