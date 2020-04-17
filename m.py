@@ -50,7 +50,7 @@ import traceback
 import threading
 import sys
 
-from linepy import LINE, 
+from linepy import LINE, OEPoll
 
 kickerHelpMessage = """----------- จัดการบัญชี -----------
 - [OWNER] {key}:ban (@) แบนสมาชิก
