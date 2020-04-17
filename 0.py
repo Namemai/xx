@@ -1,4 +1,4 @@
-from mintAPI import *
+#from mintAPI import *
 import json, codecs, sys, time, datetime, threading, LineService
 import traceback, re, random, requests, time, sys, ast, os
 #from humanfriendly import format_timespan, format_size, format_number, format_length
