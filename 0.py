@@ -1,7 +1,7 @@
-#from mintAPI import *
+from mintAPI import *
 import json, codecs, sys, time, datetime, threading, LineService
 import traceback, re, random, requests, time, sys, ast, os
-#from humanfriendly import format_timespan, format_size, format_number, format_length
+from humanfriendly import format_timespan, format_size, format_number, format_length
 from multiprocessing import Process
 
 from thrift.unverting import *
@@ -11,7 +11,7 @@ from thrift.TRecursive import *
 from thrift import transport, protocol, server
 from thrift.protocol import TCompactProtocol
 from thrift.transport import THttpClient
-#from ttypes import LoginRequest
+from ttypes import LoginRequest
 
 CLIENTAPP = "IOSIPAD\t8.12.2\tPASUNX\t11.2.5"
 APP = "DESKTOPMAC\t10.10.2-YOSEMITE-x64\tMAC 4.5.0"
