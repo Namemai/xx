@@ -1,77 +1,56 @@
-from mintAPI import *
-import json, codecs, sys, time, datetime, threading, LineService
-import traceback, re, random, requests, time, sys, ast, os
-from humanfriendly import format_timespan, format_size, format_number, format_length
-from multiprocessing import Process
+antijsAmounts = 1
+import platform
 
-from thrift.unverting import *
-from thrift.TMultiplexedProcessor import *
-from thrift.TSerialization import *
-from thrift.TRecursive import *
-from thrift import transport, protocol, server
-from thrift.protocol import TCompactProtocol
-from thrift.transport import THttpClient
-from ttypes import LoginRequest
+import os
+import sys
+import json
 
-CLIENTAPP = "IOSIPAD\t8.12.2\tPASUNX\t11.2.5"
-APP = "DESKTOPMAC\t10.10.2-YOSEMITE-x64\tMAC 4.5.0"
-OAAPP = "BIZANDROID\t8.10.1\tiPhone OS\t11.2.5"
+from tools import LiveJSON, FixJSON
 
+__command__ = ['clear', 'cls']
+for command in __command__:
+    if os.system(command) == 0:
+        break
+
+print(platform.python_version())
+
+def kickerBaseGenerator(amount):
+    kickerBaseJson = {}
+    for i in range(amount):
+        kickerBaseJson[str(i+1)] = {'token': '#'}
+    return kickerBaseJson
+
+readerTemp = {}
+
+print("""
+\t\tTITANX BY MAI
+\t\t\tCOPYRIGHT(C) 2019
+""")
+
+settings = LiveJSON('settings.json')
+FixJSON(settings, {'prefix':{'kicker':'x', 'self': '.'}, 'protect':{}, 'token': '#', 'kicker': {}, 'friend': False, "banlist":{}, "admin": {}, 'warmode':{}, "antijs": {}, "status":{}})
 try:
-    client = LINE(sys.argv[1], appName=APP)
-except:
-    #print("[AUTO LOGIN] Login Fail")
-    sys.exit()
+    botAmounts = input("[@] Choice your bots amount (2/+) ")
+    if not botAmounts.isdigit() and len(list(settings['kicker'])) < 2: exit("[@] bots amount must be a digit.")
+    elif not botAmounts.isdigit(): botAmounts = len(list(settings['kicker']));print("[@] Loading bot amount by tokens..")
+    if int(botAmounts) < 2: exit("[@] Your bots amount must be more than 2+")
+    if int(botAmounts) >= 21 and SAFEMODE == True: exit(f"[@] ตั้ง {int(botAmounts)} ตัวบัคแอดเพื่อนนะครับ (SAFEMODE)")
+    botAmounts = int(botAmounts)
+except KeyboardInterrupt:
+    exit("\n[@] Closed by user.")
 
-startTime = time.time()
+KICKER = botAmounts
+ANTIJS = antijsAmounts
 
-helper1 = None
-helper2 = None
-helper3 = None
+print(f"[@] Running on {botAmounts+ANTIJS} bots. ({ANTIJS} GHOST)")
 
-pr = client.getProfile()
-cl = pr.mid
+import random
+import time
+import traceback
+import threading
+import sys
 
-try:
-    if sys.argv[3]:
-        print("[AUTO LOGIN] " + pr.displayName)
-    else:
-        print("[LOGIN] " + pr.displayName)
-except:
-    print("[LOGIN] " + pr.displayName)
-
-h1, h2, h3 = None, None, None
-KR = None
-
-KickerLogin = False
-KickerKey = "dion"
-dionMID = [cl]
-dionMIDWithOutCL = []
-
-fightmode = {"gid":{}}
-
-poll = OEPoll(client)
-kickerPoll = None
-
-ReaderChecker = {"readRom":{}}
-
-RealTimeStatus = False
-StatusConut, StatusUpdate, OldStatus = 0, False, pr.statusMessage
-
-#saved = {"readPoint":{},"readMember":{},"setTime":{},"ROM":{},"invite":{},"changesetting":{},"protectkick":{},"blacklist":{},"autoread":false,"kicker":{"1":"#","2":"#","3":"#"}}
-
-try:
-    dionLoad = codecs.open(cl+".json","r","utf-8")
-    dion = json.load(dionLoad)
-except:
-    if os.path.exists(cl+".json"):
-        os.remove(cl+".json")
-    time.sleep(0.5)
-    f = open(cl+'.json', 'a+')
-    f.write('{"readPoint":{},"readMember":{},"setTime":{},"ROM":{},"invite":{},"changesetting":{},"protectkick":{},"blacklist":{},"autoread":false,"kicker":{"1":"#","2":"#","3":"#"}}')
-    f.close()
-    dionLoad = codecs.open(cl+".json","r","utf-8")
-    dion = json.load(dionLoad)
+from linepy import LINE, 
 
 kickerHelpMessage = """----------- จัดการบัญชี -----------
 - [OWNER] {key}:ban (@) แบนสมาชิก
