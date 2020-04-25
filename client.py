@@ -1,3 +1,4 @@
+
 antijsAmounts = 1
 import platform
 
@@ -24,7 +25,7 @@ readerTemp = {}
 
 print("""
 
-\t\tTITANX BY MAI
+\t\tTITANX BY PASUNX คนเดียว มีควยไรไหม
 \t\t\tCOPYRIGHT(C) 2019
 
 """)
@@ -54,43 +55,43 @@ import sys
 
 from linepy import LINE, OEPoll
 
-helpMessage = """------[คำสั่งแอดมิน]------
+helpMessage = """-------- ᴛɪᴛᴀɴ x --------
 ᴋɪᴄᴋᴇʀ ᴀᴍᴏᴜɴᴛ: {kk}
 
 ꜱᴇʟꜰ ᴄᴏᴍᴍᴀɴᴅ:
-- {s}เชค
-- {s}มี
-- {s}มิด @
+- {s}ꜱᴛᴀᴛᴜꜱ
+- {s}ᴄᴏɴᴛᴀᴄᴛ @
+- {s}ᴍɪᴅ @
 - {s}ᴘʀᴇꜰɪx ᴛᴇxᴛ
 
 ᴋɪᴄᴋᴇʀ ᴄᴏᴍᴍᴀɴᴅ:
-- {k} คำสั่ง (ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ)
-- {k} rk
+- {k} ʜᴇʟᴘ (ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅ)
+- {k} ᴘʀᴇꜰɪx ᴛᴇxᴛ
 - {k} ʟᴏɢ (ᴠɪᴇᴡ ʟᴏɢꜱ)
-- {k} สปีด
-- {k} บอท
-- {k} เชค
-- {k} มา
-- {k} ออก
-- {k} เตะ @
-- {k} แบน @, ɴᴀᴍᴇ (ʙᴀɴ)
-- {k} ยกแบน @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
-- {k} ขาว (ᴄʟᴇᴀʀ ʙᴀɴ)
-- {k} ดำ (ʙᴀɴ ʟɪꜱᴛ)
-- {k} เตะดำ (ᴋɪᴄᴋ ʙᴀɴ)
-- {k} ป้องกัน
+- {k} ꜱᴘᴇᴇᴅ
+- {k} ʀᴇꜱᴘᴏɴꜱᴇ
+- {k} ꜱᴛᴀᴛᴜꜱ
+- {k} ᴊᴏɪɴ
+- {k} ʟᴇᴀᴠᴇ
+- {k} ᴋɪᴄᴋ @
+- {k} ʙᴀɴ @, ɴᴀᴍᴇ (ʙᴀɴ)
+- {k} ᴅᴇʟ @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
+- {k} ᴄʟᴇᴀʀ (ᴄʟᴇᴀʀ ʙᴀɴ)
+- {k} ʟɪꜱᴛ (ʙᴀɴ ʟɪꜱᴛ)
+- {k} ᴋɪʟʟ (ᴋɪᴄᴋ ʙᴀɴ)
+- {k} ᴘʀᴏᴛᴇᴄᴛ
 - {k} ᴀᴅᴍɪɴ ᴀᴅᴅ @, ɴᴀᴍᴇ
 - {k} ᴀᴅᴍɪɴ ᴅᴇʟ @, ɴᴀᴍᴇ"""
 
-kickerHelpMessage = """------[คำสั่งคิกเก้อ]------
-- {k} บอท
-- {k} เตะ @
-- {k} แบน @, ɴᴀᴍᴇ (ʙᴀɴ)
-- {k} ยกแบน @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
-- {k} ขาว (ᴄʟᴇᴀʀ ʙᴀɴ)
-- {k} ดำ (ʙᴀɴ ʟɪꜱᴛ)
-- {k} เตะดำ (ᴋɪᴄᴋ ʙᴀɴ)
-- {k} ป้องกัน all/off"""
+kickerHelpMessage = """-------- ᴛɪᴛᴀɴ x --------
+- {k} ʀᴇꜱᴘᴏɴꜱᴇ
+- {k} ᴋɪᴄᴋ @
+- {k} ʙᴀɴ @, ɴᴀᴍᴇ (ʙᴀɴ)
+- {k} ᴅᴇʟ @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
+- {k} ᴄʟᴇᴀʀ (ᴄʟᴇᴀʀ ʙᴀɴ)
+- {k} ʟɪꜱᴛ (ʙᴀɴ ʟɪꜱᴛ)
+- {k} ᴋɪʟʟ (ᴋɪᴄᴋ ʙᴀɴ)
+- {k} ᴘʀᴏᴛᴇᴄᴛ"""
 
 logs = []
 
@@ -324,13 +325,11 @@ def execute(op):
                     for ki in bOn:
                         try:
                             if op.param2 not in kicked and ki.profile.mid not in settings["status"]:
-                                settings["banlist"][_mid] = True
                                 ki.kickoutFromGroup(group.id, [op.param2])
                                 kicked.append(op.param2)
                             for mid in banIg:
                                 try:
                                     if mid not in kicked and ki.profile.mid not in settings["status"]:
-                                        settings["banlist"][_mid] = True
                                         ki.kickoutFromGroup(group.id, [mid])
                                         kicked.append(mid)
                                 except Exception as e:
@@ -446,13 +445,11 @@ def execute(op):
                         for ki in bOn:
                             try:
                                 if op.param2 not in kicked and ki.profile.mid not in settings["status"]:
-                                    settings["banlist"][_mid] = True
                                     ki.kickoutFromGroup(group.id, [op.param2])
                                     kicked.append(op.param2)
                                 for mid in banIg:
                                     try:
                                         if mid not in kicked and ki.profile.mid not in settings["status"]:
-                                            settings["banlist"][_mid] = True
                                             ki.kickoutFromGroup(group.id, [mid])
                                             kicked.append(mid)
                                     except Exception as e:
@@ -511,7 +508,6 @@ def execute(op):
                                 try:
                                     for _mid in banIv:
                                         if _mid not in canceled and ki.profile.mid not in settings["status"]:
-                                            settings["banlist"][_mid] = True
                                             ki.cancelGroupInvitation(group.id, [_mid])
                                             canceled.append(_mid)
                                 except Exception as e:
@@ -755,13 +751,13 @@ def execute(op):
 
         if op.type == 25:
             if cmd is not None:
-                if cmd.lower() == "อ่าน":
+                if cmd.lower() == "reader":
                     if not to in readerTemp: return
                     mids = [mid for mid in readerTemp[to]]
                     mentionMembers(to, mids, "บัญชีที่อ่านข้อความ:\n")
                     del readerTemp[to]
                     
-                if cmd.lower() == "คำสั่ง":
+                if cmd.lower() == "help":
                     client.sendMessage(to, helpMessage.format(kk=str(KICKER), s=toChar(settings['prefix']['self']), k=toChar(settings['prefix']['kicker'])))
 
                 if cmd.lower() == "prefix":
@@ -790,13 +786,13 @@ def execute(op):
                         return
                     client.sendMessage(to, toChar("%s at line %d: %s" % (error_class, line_number, detail)))
 
-                if cmd.lower() == "มี" or cmd.lower() == "มิด":
+                if cmd.lower() == "contact" or cmd.lower() == "mid":
                     def sendContactOrMid(to, mids, cmd):
                         for mid in mids:
                             if len(mid) == len(client.profile.mid):
-                                if cmd == "มี":
+                                if cmd == "contact":
                                     client.sendContact(to, mid)
-                                if cmd == "มิด":
+                                if cmd == "mid":
                                     client.sendMessage(to, mid)
                     if req[0] == None:
                         return sendContactOrMid(to, [client.profile.mid], cmd)
@@ -806,11 +802,11 @@ def execute(op):
                     midslist = midslist + req
                     sendContactOrMid(to, midslist, cmd)
 
-                if cmd.lower() == "เชค" and req[0] == None:
+                if cmd.lower() == "status" and req[0] == None:
                     try:
                         client.inviteIntoGroup(to, [client.profile.mid])
-                        message = "เชิญ & เตะ: ON"
-                    except: message = "เชิญ & เตะ: OFF"
+                        message = "ɪɴᴠɪᴛᴇ & ᴋɪᴄᴋ: ʀᴇᴀᴅʏ"
+                    except: message = "ɪɴᴠɪᴛᴇ & ᴋɪᴄᴋ: ɴᴏᴛ ʀᴇᴀᴅʏ"
                     client.sendMessage(to, message)
             else:
                 if to in readerTemp:
@@ -819,7 +815,7 @@ def execute(op):
         if p is None: return
         if p.lower() != "": return
 
-        if kcmd[0] == "ก็อต" and isself:
+        if kcmd[0] == "ghost" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             if group.invitee == None: return
@@ -834,7 +830,7 @@ def execute(op):
             else:
                 client.sendMessage(to, toChar("ghost is already on"))
 
-        if kcmd[0] == "คำสั่ง" and allowed:
+        if kcmd[0] == "help" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             if group.id not in settings["admin"]:
@@ -864,7 +860,7 @@ def execute(op):
             message = f"ᴋɪᴄᴋᴇʀ ᴘʀᴇꜰɪx ɪꜱ ꜱᴇᴛ ᴛᴏ {toChar(settings['prefix']['kicker'])}"
             return random.choice(bOn).sendMessage(group.id, message)
 
-        if kcmd[0] == "b" and isself:
+        if kcmd[0] == "war" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -884,7 +880,7 @@ def execute(op):
                 del settings["warmode"][group.id]
                 return random.choice(bOn).sendMessage(group.id, toChar("war mode disable"))
 
-        if kcmd[0] == "ป้องกัน":
+        if kcmd[0] == "protect":
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             if group.id not in settings["protect"]:
@@ -969,7 +965,7 @@ def execute(op):
                             message += f"\n- {member.displayName}"
                 return random.choice(bOn).sendMessage(to, message if len(message) != len(o) else toChar("no admin deleted."))
 
-        if kcmd[0] == "เตะดำ" and allowed:
+        if kcmd[0] == "kill" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -990,7 +986,7 @@ def execute(op):
                             kicked.append(mid)
                     except: continue
 
-        if kcmd[0] == "ยกแบน" and allowed:
+        if kcmd[0] == "del" and allowed:
             if len(kcmd) == 1: return
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
@@ -1011,7 +1007,7 @@ def execute(op):
             if message == "ᴅᴇʟ ᴜꜱᴇʀ(ꜱ):": return random.choice(bOn).sendMessage(to, toChar("no blacklist deleted."))
             random.choice(bOn).sendMessage(to, message)
 
-        if kcmd[0] == "แบน" and allowed:
+        if kcmd[0] == "ban" and allowed:
             if len(kcmd) == 1: return
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
@@ -1054,7 +1050,7 @@ def execute(op):
             logs = []
             random.choice(bOn).sendMessage(to, message if len(message) != len(old) else "ɴᴏ ʟᴏɢꜱ")
 
-        if kcmd[0] == "เตะ" and allowed:
+        if kcmd[0] == "kick" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1075,7 +1071,7 @@ def execute(op):
                     except:
                         continue
 
-        if kcmd[0] == "เชค" and isself:
+        if kcmd[0] == "status" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -1086,15 +1082,15 @@ def execute(op):
             for ki in bOn:
                 try:
                     ki.inviteIntoGroup(group.id, [ki.profile.mid])
-                    message = "พร้อมเตะค่ะเจ้านาย.."
+                    message = "ʀᴇᴀᴅʏ"
                     if ki.profile.mid in settings["status"]:
                         del settings["settings"][ki.profile.mid]
                 except:
-                    message = "ไม่พร้อมเตะค่ะเจ้านาย.."
+                    message = "ɴᴏᴛ ʀᴇᴀᴅʏ"
                     settings["status"][ki.profile.mid] = True
                 ki.sendMessage(group.id, message)
 
-        if kcmd[0] == "ออก" and isself:
+        if kcmd[0] == "leave" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1105,7 +1101,7 @@ def execute(op):
             for ki in inG:
                 ki.leaveGroup(group.id)
 
-        if kcmd[0] == "ขาว" and allowed:
+        if kcmd[0] == "clear" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -1128,7 +1124,7 @@ def execute(op):
                     dp += 1
             random.choice(bOn).sendMessage(to, toChar(f"clear {dp} blacklist user(s) on this group.") if dp != 0 else toChar(f"no blacklist user on this group."))
 
-        if kcmd[0] == "ดำ" and allowed:
+        if kcmd[0] == "list" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group: return
             bOn = []
@@ -1151,7 +1147,7 @@ def execute(op):
                         message += f"\n- {client.getContact(mid).displayName}"
             return random.choice(bOn).sendMessage(to, message if len(message) != len(old) else toChar("no blacklist on this group."))
 
-        if kcmd[0] == "บอท" and allowed:
+        if kcmd[0] == "response" and allowed:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1165,7 +1161,7 @@ def execute(op):
                 if kicker[ki].profile.mid in bOn:
                     kicker[ki].sendMentionV2(to, "@!", [msg._from])
 
-        if kcmd[0] == "rk" and isself:
+        if kcmd[0] == "rank" and isself:
             igenet = 1000
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
@@ -1187,7 +1183,7 @@ def execute(op):
                 endTime = int((time.time() - startTime)*igenet)
                 ki.sendMessage(group.id, toChar("0/10 stars" if endTime not in list(powerLaist) and endTime < list(powerLaist)[0] else f'10/10 stars' if endTime < list(powerLaist)[0] and endTime not in list(powerLaist) else f"{powerLaist[int(str(endTime)[1]) if len(str(endTime)) >= 2 else endTime]}/10 stars"))
 
-        if kcmd[0] == "สปีด" and isself:
+        if kcmd[0] == "speed" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1203,7 +1199,7 @@ def execute(op):
                 endTime = time.time() - startTime
                 ki.sendMessage(to, toChar(f'{endTime} second | {int(endTime*1000)} MS'))
 
-        if kcmd[0] == "โปรฟาย" and isself:
+        if kcmd[0] == "profile" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1237,7 +1233,7 @@ def execute(op):
                         proobj.displayName = toChange
                         ki.updateProfile(proobj)
 
-        if kcmd[0] == "มา" and isself:
+        if kcmd[0] == "join" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
             if not group:
                 return
@@ -1276,9 +1272,9 @@ client = LINE()
 kicker = {}
 antijs = {}
 try:
-    client.login(settings["token"], appName=f"IOSIPAD\t10.5.1\tiPad OS\t13.3.1")
+    client.login(settings["token"], appName=f"IOSIPAD\t10.4.2\tiPad OS\t13.3.1")
 except:
-    client.login(appName=f"IOSIPAD\t10.5.1\tiPad OS\t13.3.1", showQr=True)
+    client.login(appName=f"IOSIPAD\t10.4.2\tiPad OS\t13.3.1", showQr=True)
 if settings["token"] != client.authToken:
     settings["token"] = client.authToken
 oepoll = OEPoll(client)
