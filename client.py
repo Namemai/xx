@@ -91,10 +91,7 @@ kickerHelpMessage = """-------- ᴛɪᴛᴀɴ x --------
 - {k} ᴄʟᴇᴀʀ (ᴄʟᴇᴀʀ ʙᴀɴ)
 - {k} ʟɪꜱᴛ (ʙᴀɴ ʟɪꜱᴛ)
 - {k} ᴋɪʟʟ (ᴋɪᴄᴋ ʙᴀɴ)rank
-- {k} ghost
 - {k} rank
-- {k} profile
-- {k} name
 - {k} ᴘʀᴏᴛᴇᴄᴛ"""
 
 logs = []
@@ -1201,7 +1198,7 @@ def execute(op):
                 startTime = time.time()
                 profile = ki.getProfile()
                 endTime = time.time() - startTime
-                ki.sendMessage(to, toChar(f'{endTime} second | {int(endTime*1000)} MS'))
+                ki.sendMessage(to, toChar(f'{endTime} | {int(endTime*1000)} MS'))
 
         if kcmd[0] == "profile" and isself:
             group = client.getGroup(to) if msg.toType == 2 else None
