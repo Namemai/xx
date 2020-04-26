@@ -90,7 +90,11 @@ kickerHelpMessage = """-------- ᴛɪᴛᴀɴ x --------
 - {k} ᴅᴇʟ @, ɴᴀᴍᴇ (ᴜɴʙᴀɴ)
 - {k} ᴄʟᴇᴀʀ (ᴄʟᴇᴀʀ ʙᴀɴ)
 - {k} ʟɪꜱᴛ (ʙᴀɴ ʟɪꜱᴛ)
-- {k} ᴋɪʟʟ (ᴋɪᴄᴋ ʙᴀɴ)
+- {k} ᴋɪʟʟ (ᴋɪᴄᴋ ʙᴀɴ)rank
+- {k} ghost
+- {k} rank
+- {k} profile
+- {k} name
 - {k} ᴘʀᴏᴛᴇᴄᴛ"""
 
 logs = []
@@ -786,11 +790,11 @@ def execute(op):
                         return
                     client.sendMessage(to, toChar("%s at line %d: %s" % (error_class, line_number, detail)))
 
-                if cmd.lower() == "contact" or cmd.lower() == "mid":
+                if cmd.lower() == "me" or cmd.lower() == "mid":
                     def sendContactOrMid(to, mids, cmd):
                         for mid in mids:
                             if len(mid) == len(client.profile.mid):
-                                if cmd == "contact":
+                                if cmd == "me":
                                     client.sendContact(to, mid)
                                 if cmd == "mid":
                                     client.sendMessage(to, mid)
