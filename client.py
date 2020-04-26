@@ -25,7 +25,7 @@ readerTemp = {}
 
 print("""
 
-\t\tTITANX BY PASUNX คนเดียว มีควยไรไหม
+\t\tTITANX BY PASUNX
 \t\t\tCOPYRIGHT(C) 2019
 
 """)
